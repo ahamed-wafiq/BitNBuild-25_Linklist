@@ -212,26 +212,37 @@ const Expenses = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-                            {sortedExpenses.length > 0 ? (
-                              sortedExpenses.map(expense => (
-                                <tr key={expense.id}>
-                                  <td className="px-6 py-4 whitespace-nowrap">{expense.date}</td>
-                                  <td className="px-6 py-4 whitespace-nowrap">{expense.category}</td>
-                                  <td className="px-6 py-4 whitespace-nowrap">₹{expense.amount.toLocaleString()}</td>
-                                  <td className="px-6 py-4 whitespace-nowrap">{expense.notes}</td>
-                                  <td className="px-6 py-4 whitespace-nowrap">
-                                    <button onClick={() => handleEdit(expense)} className="text-blue-600 hover:underline mr-2"><Edit3 className="w-4 h-4 inline" /></button>
-                                    <button onClick={() => handleDelete(expense.id)} className="text-red-600 hover:underline"><Trash2 className="w-4 h-4 inline" /></button>
-                                  </td>
-                                </tr>
-                              ))
-                            ) : (
-                              <tr>
-                                <td colSpan="5" className="px-6 py-4 text-center text-gray-500">
-                                  No expenses found.
-                                </td>
-                              </tr>
-                            )}
+                            {sortedExpenses.map((expense) => (
+                <tr key={expense.id}>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.date}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.category}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">₹{expense.amount.toLocaleString()}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.notes}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700 flex gap-2">
+                    <button
+                      onClick={() => handleEdit(expense)}
+                      className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg flex items-center transition-colors"
+                    >
+                      <Edit3 className="w-4 h-4 mr-1" />
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(expense.id)}
+                      className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg flex items-center transition-colors"
+                    >
+                      <Trash2 className="w-4 h-4 mr-1" />
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+              {sortedExpenses.length === 0 && (
+                <tr>
+                  <td colSpan="5" className="px-6 py-4 text-center text-gray-500">
+                    No expenses found.
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
