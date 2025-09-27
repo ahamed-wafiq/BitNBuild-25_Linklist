@@ -1,6 +1,7 @@
 // src/App.jsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { ExpenseProvider } from './context/ExpenseContext';
 import Home from './pages/Home';
@@ -23,6 +24,7 @@ function App() {
             <Route path="/tax-optimization" element={<TaxOptimization />} />
             <Route path="/cibil-advisor" element={<CibilAdvisor />} />
             <Route path="/settings" element={<Settings />} />
+             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
       </div>
