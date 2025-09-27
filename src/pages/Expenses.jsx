@@ -212,7 +212,7 @@ const Expenses = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-                            {sortedExpenses.map((expense) => (
+              {sortedExpenses.map((expense) => (
                 <tr key={expense.id}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.date}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{expense.category}</td>
